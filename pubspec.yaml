@@ -1,6 +1,8 @@
-name: mvvm_flutter
-description: A new Flutter project.
-publish_to: 'none'
+name: freezed_demo
+description: A Demo MVVM Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
 version: 1.0.0+1
 
 environment:
@@ -9,24 +11,32 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  floor: ^1.3.0
+  #  floor: ^1.2.0                         # local database
+  path_provider: ^2.0.11                 # local database
+  hive: ^2.2.3                           # local database
+  hive_flutter: ^1.1.0                   # local database
   cupertino_icons: ^1.0.2
-  flutter_riverpod: ^2.0.0-dev.9
+  json_annotation: ^4.6.0
+  freezed_annotation: ^2.1.0
+  flutter_riverpod: ^2.0.0-dev.9        # riverpod as state management tools
   json_serializable: ^6.3.1
-  retrofit: ^2.0.0
+  retrofit: ^3.0.1+1
   logger: ^1.0.0
   dio: ^4.0.6
   pretty_dio_logger: ^1.1.1
-  flutter_launcher_icons: ^0.10.0
-  google_fonts: ^3.0.1
-  easy_localization: ^3.0.1
-  mockito: ^5.3.0
+  intl: ^0.17.0                         # Format dates
+  flutter_launcher_icons: ^0.10.0       # launcher config
+  google_fonts: ^3.0.1                  # google font collection
+  easy_localization: ^3.0.1             # i18n language
+  mockito: ^5.3.0                       # Testing fake object
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  floor_generator: any
-  retrofit_generator: ^2.0.0+3
+  #  floor_generator: ^1.2.0
+  hive_generator: ^1.1.3
+  freezed: ^2.1.0+1                     # make slim model code
+  retrofit_generator: ^4.0.3+1
   build_runner: ^2.0.6
   flutter_lints: ^2.0.1
 
