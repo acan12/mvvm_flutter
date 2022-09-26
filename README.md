@@ -1,16 +1,19 @@
-# mvvm_flutter
+# MVVM Architecture for Base Flutter
 
-A new Flutter project.
+A new Demo MVVM Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for a Flutter application to show mvvm implementation.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+####Advantage:
+1. Mvvm architecture approach .
+2. Slim code for fetch api and local data soorage .
+3. Use `HIVE` as local database ( https://docs.hivedb.dev/#/ ) . 
+4. Should be easy for make unit test .
+5. Scalling feature is ok 
+
+####Try running in your local machine. 
+##having fun !,   thank you.
