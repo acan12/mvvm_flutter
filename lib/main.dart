@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_demo/data/model/entity/employee.dart';
+import 'package:freezed_demo/ui/pages/home/index_page.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -15,9 +16,10 @@ void main() async {
   // await path_provider.getApplicationDocumentsDirectory();
 
   await Hive.initFlutter();
-  Hive..registerAdapter(EmployeeAdapter())
-      ..registerAdapter(JobAdapter())
-      ..registerAdapter(DepartmentAdapter());
+  Hive
+    ..registerAdapter(EmployeeAdapter())
+    ..registerAdapter(JobAdapter())
+    ..registerAdapter(DepartmentAdapter());
 
   runApp(MyApp());
 }
@@ -29,9 +31,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ProviderScope(
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           initialRoute: '/',
           routes: {
-            '/': (context) => HomePage(),
+            '/': (context) => IndexPage(),
           },
         ));
   }

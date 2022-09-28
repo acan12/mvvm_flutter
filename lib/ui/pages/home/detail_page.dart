@@ -5,6 +5,9 @@ import '../../../viewmodel/user/profile_viewmodel.dart';
 
 
 class DetailPage extends ConsumerWidget {
+  final String extra;
+
+  const DetailPage({Key? key, required this.extra}) : super(key: key);
 
   @override
   Widget build(BuildContextacontext, WidgetRef ref) {
