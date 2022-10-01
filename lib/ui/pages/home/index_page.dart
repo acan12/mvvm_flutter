@@ -20,12 +20,12 @@ class IndexPage extends StatelessWidget {
             ElevatedButton(
               style: style,
               onPressed: () => context.go("/$routeHome"),
-              child: const Text('Demo Local DB'),
+              child: const Text('Demo Api'),
             ),
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () => context.go("/${routeDetail}/1"),
-              child: const Text('Demo Api'),
+              child: const Text('Demo Local'),
             ),
           ],
         ),
