@@ -9,8 +9,8 @@ part 'question_response.g.dart';
 @Freezed()
 class QuestionResponse with _$QuestionResponse {
   const factory QuestionResponse({
-    @Default(null) Meta? meta,
-    @Default(null) Data? data,
+    required Meta meta,
+    required Data data,
   }) = _QuestionResponse;
 
   factory QuestionResponse.fromJson(Map<String, dynamic> json) =>

@@ -4,7 +4,7 @@ import 'package:freezed_demo/viewmodel/base_viewmodel.dart';
 
 import '../../repo/question/question_repository.dart';
 
-final allQuestionProvider = FutureProvider<QuestionResponse>(
+final allQuestionProvider = FutureProvider.autoDispose<QuestionResponse>(
     (ref) => QuestionViewModel().getQuestions()
 );
 

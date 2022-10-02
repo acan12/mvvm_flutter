@@ -7,6 +7,7 @@ part 'question.g.dart';
 @Freezed()
 class Question with _$Question {
   const factory Question({
+    required String question,
     required String published_at,
     required String answer,
   }) = _Question;

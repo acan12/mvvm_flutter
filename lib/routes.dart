@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_demo/ui/pages/error_page.dart';
-import 'package:freezed_demo/ui/pages/home/detail_page.dart';
+import 'package:freezed_demo/ui/pages/home/local_page.dart';
+import 'package:freezed_demo/ui/pages/home/api_page.dart';
 import 'package:freezed_demo/ui/pages/home/home_page.dart';
-import 'package:freezed_demo/ui/pages/home/index_page.dart';
 import 'package:go_router/go_router.dart';
 
-const String routeIndex = '/';
-const String routeHome = 'home';
-const String routeDetail = 'detail';
+const String routeHome = '/';
+const String routeApi = 'api';
+const String routeLocal = 'local';
 
 final goRouter = GoRouter(
   debugLogDiagnostics: true,
-  initialLocation: '/',
+  initialLocation: routeHome,
   routes: [
     GoRoute(
-        path: routeIndex,
+        path: routeHome,
         pageBuilder: (context, state) =>
-            MaterialPage(key: state.pageKey, child: IndexPage()),
+            MaterialPage(key: state.pageKey, child: HomePage()),
         routes: [
           GoRoute(
-              path: routeHome,
+              path: routeApi,
               pageBuilder: (context, state) =>
-                  MaterialPage(key: state.pageKey, child: HomePage())),
+                  MaterialPage(key: state.pageKey, child: ApiPage())),
           GoRoute(
-              path: routeDetail,
+              path: routeLocal,
               pageBuilder: (context, state) => MaterialPage(
                   key: state.pageKey,
-                  child: DetailPage(extra: state.extra as String)))
+                  child: LocalPage(extra: state.extra as String)))
         ]),
   ],
   errorPageBuilder: (context, state) => MaterialPage(

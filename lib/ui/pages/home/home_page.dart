@@ -1,55 +1,43 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:freezed_demo/viewmodel/question/question_viewmodel.dart';
-import 'package:hive/hive.dart';
-import '../../../data/config.dart';
-import '../../../data/model/entity/employee.dart';
+import 'package:freezed_demo/routes.dart';
+import 'package:freezed_demo/ui/uiconfig.dart';
+import 'package:go_router/go_router.dart';
 
-class HomePage extends ConsumerWidget {
+import '../../component/appbar.dart';
 
+class HomePage extends StatelessWidget {
   @override
-  Widget build(BuildContextacontext, WidgetRef ref) {
-    final questionsProvider = ref.watch(allQuestionProvider);
+  Widget build(BuildContext context) {
+    final ButtonStyle style = ElevatedButton.styleFrom(
+      foregroundColor: Colors.white,
+      textStyle: const TextStyle(fontSize: 14),
+      minimumSize: Size(150, 50),
+      shadowColor: Colors.greenAccent,
+      elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
+    );
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Api"),
-      ),
+      appBar: topAppBarComponent(UiConfig.titleMain),
       body: Center(
-          child: questionsProvider.when(
-        data: (data) => Text("Count of Question you have are : ${data.data?.questions.length} item"),
-        error: (err, stack) => Text("Errror: ${err.toString()}"),
-        loading: () => CircularProgressIndicator(color: Colors.blue,)
-      )),
-    );
-  }
-
-  Widget getColumn(String value) {
-    // final db = fetchAllEmployeeFromLocalDB();
-    // db.whenComplete(() => )
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        const Text(
-          'Your Value',
-          style: TextStyle(fontSize: 14),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ElevatedButton(
+              style: style,
+              onPressed: () => context.go("/$routeApi"),
+              child: const Text('Demo Api'),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              style: style,
+              onPressed: () => context.go("/${routeLocal}/1"),
+              child: const Text('Demo local data'),
+            ),
+          ],
         ),
-        Text(
-          '$value',
-          style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-        ),
-      ],
+      ),
     );
-  }
-
-  addEmployeeToLocalDB(Employee employee) async {
-    var employees = await Hive.openBox<Employee>(DB_EMPLOYEE);
-    employees.add(employee);
-  }
-
-  deleteAllEmployeFromLocalDB() async {
-    var employees = await Hive.openBox<Employee>(DB_EMPLOYEE);
-    employees.clear();
   }
 }
-
-

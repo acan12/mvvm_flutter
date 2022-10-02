@@ -7,17 +7,17 @@ import '../../../data/model/entity/employee.dart';
 import '../../../viewmodel/user/profile_viewmodel.dart';
 
 
-class DetailPage extends ConsumerWidget {
+class LocalPage extends ConsumerWidget {
   final String extra;
 
-  const DetailPage({Key? key, required this.extra}) : super(key: key);
+  const LocalPage({Key? key, required this.extra}) : super(key: key);
 
   @override
   Widget build(BuildContextacontext, WidgetRef ref) {
     final apiProvider = ref.watch(personaViewModelProvider);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("Local"),
       ),
       body: Center(
           child: apiProvider.when(
