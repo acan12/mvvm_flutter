@@ -6,8 +6,14 @@ import 'package:go_router/go_router.dart';
 class IndexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-    ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 14));
+    final ButtonStyle style = ElevatedButton.styleFrom(
+      foregroundColor: Colors.white,
+      textStyle: const TextStyle(fontSize: 14),
+      minimumSize: Size(150, 40),
+      shadowColor: Colors.greenAccent,
+      elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -24,8 +30,9 @@ class IndexPage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
+              style: style,
               onPressed: () => context.go("/${routeDetail}/1"),
-              child: const Text('Demo Local'),
+              child: const Text('Demo local data'),
             ),
           ],
         ),

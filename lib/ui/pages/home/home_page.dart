@@ -1,35 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:freezed_demo/viewmodel/question/question_viewmodel.dart';
 import 'package:hive/hive.dart';
 import '../../../data/config.dart';
 import '../../../data/model/entity/employee.dart';
-import '../../../viewmodel/user/profile_viewmodel.dart';
 
 class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContextacontext, WidgetRef ref) {
-    final personalProvider = ref.watch(personaViewModelProvider);
+    final questionsProvider = ref.watch(allQuestionProvider);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("Api"),
       ),
       body: Center(
-          child: personalProvider.when(
-        data: (data) => Text("The name is : ${data.full_name}"),
+          child: questionsProvider.when(
+        data: (data) => Text("Count of Question you have are : ${data.data?.questions.length} item"),
         error: (err, stack) => Text("Errror: ${err.toString()}"),
         loading: () => CircularProgressIndicator(color: Colors.blue,)
       )),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          deleteAllEmployeFromLocalDB();
-          // ref.read(myprovider.notifier).state++;
-          addEmployeeToLocalDB(Employee("MacD1", "Dono Warkop", "25", "dono1@hotmail.com"));
-          addEmployeeToLocalDB(Employee("Kfc2", "Amir Ottopay", "30", "amir2@ottomail.com"));
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
@@ -60,7 +50,6 @@ class HomePage extends ConsumerWidget {
     var employees = await Hive.openBox<Employee>(DB_EMPLOYEE);
     employees.clear();
   }
-
 }
 
 

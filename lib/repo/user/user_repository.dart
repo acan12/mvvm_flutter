@@ -7,14 +7,14 @@ import 'package:freezed_demo/repo/base_repository.dart';
 import 'package:hive/hive.dart';
 
 import '../../data/config.dart';
-import '../../data/remote/api/api_service.dart';
+import '../../data/remote/api/api_service_portfolio.dart';
 
 class UserRepository implements BaseRepository {
   static final userRepoProvider = Provider((ref) => UserRepository());
 
   @override
   Future<UserResponse> getPersona() async {
-    final client = ApiService(Dio(BaseOptions(contentType: "application/json")));
+    final client = ApiServicePortfolio(Dio(BaseOptions(contentType: "application/json")));
     return client.getPersona();
   }
 
