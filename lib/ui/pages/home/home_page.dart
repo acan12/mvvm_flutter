@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 10),
             ElevatedButton(
               style: style,
-              onPressed: () => context.go("/${routeLocal}/1"),
+              onPressed: () => context.go("/${routeLocal}"),
               child: const Text('Demo local data'),
             ),
           ],

@@ -26,7 +26,7 @@ final goRouter = GoRouter(
               path: routeLocal,
               pageBuilder: (context, state) => MaterialPage(
                   key: state.pageKey,
-                  child: LocalPage(extra: state.extra as String)))
+                  child: LocalPage()))
         ]),
   ],
   errorPageBuilder: (context, state) => MaterialPage(

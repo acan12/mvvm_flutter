@@ -8,20 +8,20 @@ import '../../../viewmodel/user/profile_viewmodel.dart';
 
 
 class LocalPage extends ConsumerWidget {
-  final String extra;
+  // final String extra;
 
-  const LocalPage({Key? key, required this.extra}) : super(key: key);
+  // const LocalPage({Key? key, required this.extra}) : super(key: key);
 
   @override
   Widget build(BuildContextacontext, WidgetRef ref) {
-    final apiProvider = ref.watch(personaViewModelProvider);
+    final employeesProvider = ref.watch(allEmployeeProvider);
     return Scaffold(
       appBar: AppBar(
         title: Text("Local"),
       ),
       body: Center(
-          child: apiProvider.when(
-              data: (data) => showUserWidget(data.email),
+          child: employeesProvider.when(
+              data: (data) => showUserWidget(data.length.toString()),
               error: (err, stack) => Text("Errror: ${err.toString()}"),
               loading: () => CircularProgressIndicator(color: Colors.blue,)
           )),
