@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import '../../../data/config.dart';
 import '../../../data/model/entity/employee.dart';
 import '../../../viewmodel/user/profile_viewmodel.dart';
+import '../../component/modal_bottomsheet_dialog.dart';
 
 
 class LocalPage extends ConsumerWidget {
@@ -13,7 +14,7 @@ class LocalPage extends ConsumerWidget {
   // const LocalPage({Key? key, required this.extra}) : super(key: key);
 
   @override
-  Widget build(BuildContextacontext, WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final employeesProvider = ref.watch(allEmployeeProvider);
     return Scaffold(
       appBar: AppBar(
@@ -27,10 +28,16 @@ class LocalPage extends ConsumerWidget {
           )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          deleteAllEmployeFromLocalDB();
-          // ref.read(myprovider.notifier).state++;
-          addEmployeeToLocalDB(Employee("MacD1", "Dono Warkop", "25", "dono1@hotmail.com"));
-          addEmployeeToLocalDB(Employee("Kfc2", "Amir Ottopay", "30", "amir2@ottomail.com"));
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return dialogBottomSheet(context);
+            });
+
+          // deleteAllEmployeFromLocalDB();
+          // // ref.read(myprovider.notifier).state++;
+          // addEmployeeToLocalDB(Employee("MacD1", "Dono Warkop", "25", "dono1@hotmail.com"));
+          // addEmployeeToLocalDB(Employee("Kfc2", "Amir Ottopay", "30", "amir2@ottomail.com"));
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
