@@ -1,36 +1,31 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget dialogBottomSheet(BuildContext context) => Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        ListTile(
-          leading: new Icon(Icons.photo),
-          title: new Text('Photo'),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          leading: new Icon(Icons.music_note),
-          title: new Text('Music'),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          leading: new Icon(Icons.videocam),
-          title: new Text('Video'),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          leading: new Icon(Icons.share),
-          title: new Text('Share'),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-      ],
+Widget dialogBottomSheet(BuildContext context) => Container(
+      margin: new EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          TextFormField(
+            decoration: new InputDecoration(
+                hintText: "Masukan yang mau ditanyakan",
+                labelText: "Pertanyaan Lengkap",
+                icon: Icon(Icons.question_mark)),
+          ),
+          TextFormField(
+            decoration: new InputDecoration(
+              hintText: "Masukan jawaban anda",
+              labelText: "Jawaban",
+            ),
+          ),
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(minimumSize: Size(100, 50)),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, "Local");
+                  }, child: Text("Simpan"))),
+        ],
+      ),
     );
