@@ -9,7 +9,7 @@ This project is a starting point for a Flutter application to show mvvm implemen
 
 
 ####Advantage:
-1. Mvvm architecture approach .
+1. MVVM architecture approach .
 2. Slim code for fetch api and local data soorage .
 3. Use `HIVE` as local database ( https://docs.hivedb.dev/#/ ) .
 4. Use `Freezed` for make slim the model
@@ -21,6 +21,7 @@ This project is a starting point for a Flutter application to show mvvm implemen
 3. Unit test
 4. Images cache network
 5. Build variant app (prod, stag, dev)
+
 
 ####Try running in your local machine. 
 ##having fun !,   thank you.

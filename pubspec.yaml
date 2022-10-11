@@ -12,10 +12,11 @@ dependencies:
   flutter:
     sdk: flutter
   #  floor: ^1.2.0                         # local database
-  path_provider: ^2.0.11                 # local database
+#  path_provider: ^2.0.11                 # local database
   hive: ^2.2.3                           # local database
   hive_flutter: ^1.1.0                   # local database
   cupertino_icons: ^1.0.2
+  go_router: ^5.0.2                      # Router
   json_annotation: ^4.6.0
   freezed_annotation: ^2.1.0
   flutter_riverpod: ^2.0.0-dev.9        # riverpod as state management tools
@@ -33,7 +34,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  #  floor_generator: ^1.2.0
+  #  floor_generator: ^1.2.0f
   hive_generator: ^1.1.3
   freezed: ^2.1.0+1                     # make slim model code
   retrofit_generator: ^4.0.3+1
@@ -46,6 +47,7 @@ flutter:
   assets:
     - assets/ic_launcher.png
     - assets/translations/
+    - assets/placeholder.png
 
 flutter_icons:
   ios: true

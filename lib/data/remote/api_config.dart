@@ -1,5 +1,8 @@
 abstract class ApiConfig {
-  static const domainHost = "https://private-f66ab-myportfolio6.apiary-mock.com";
-  static const persona = "/personal";
-}
+  static const domainHostPortfolio = "https://private-f66ab-myportfolio6.apiary-mock.com/";
+  static const persona = "personal";
 
+  static const domainHostQuestion = "https://private-07584e-members16.apiary-mock.com/";
+  static const questions = "questions";
+  static const detailQuestion = "question/1";
+}
