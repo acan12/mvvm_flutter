@@ -47,6 +47,7 @@ flutter:
   assets:
     - assets/ic_launcher.png
     - assets/translations/
+    - assets/placeholder.png
 
 flutter_icons:
   ios: true

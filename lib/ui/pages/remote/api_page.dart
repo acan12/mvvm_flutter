@@ -3,15 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_demo/ui/component/appbar.dart';
 import 'package:freezed_demo/ui/component/bottom_menu_navigation.dart';
 import 'package:freezed_demo/ui/uiconfig.dart';
-import 'package:freezed_demo/viewmodel/question/question_viewmodel.dart';
-import 'package:hive/hive.dart';
-import '../../../data/config.dart';
-import '../../../data/model/entity/employee.dart';
+
+import '../../../viewmodel/provider/question_provider.dart';
+
 
 class ApiPage extends ConsumerWidget {
 
   @override
-  Widget build(BuildContextacontext, WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final questionsProvider = ref.watch(allQuestionProvider);
     return Scaffold(
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
@@ -19,7 +18,7 @@ class ApiPage extends ConsumerWidget {
       bottomNavigationBar: bottomMenuNavigation,
       body: Container(
           child: questionsProvider.when(
-        data: (data) => listViewComponent(data.data.questions),
+        data: (data) => listViewComponent(data.data.questions, context),
         error: (err, stack) => Text("Errror: ${err.toString()}"),
         loading: () => Center(child: CircularProgressIndicator(color: Colors.blue,),)
       )),
@@ -42,16 +41,6 @@ class ApiPage extends ConsumerWidget {
         ),
       ],
     );
-  }
-
-  addEmployeeToLocalDB(Employee employee) async {
-    var employees = await Hive.openBox<Employee>(DB_EMPLOYEE);
-    employees.add(employee);
-  }
-
-  deleteAllEmployeFromLocalDB() async {
-    var employees = await Hive.openBox<Employee>(DB_EMPLOYEE);
-    employees.clear();
   }
 }
 

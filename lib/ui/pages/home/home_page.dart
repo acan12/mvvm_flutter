@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../component/appbar.dart';
 
 class HomePage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(

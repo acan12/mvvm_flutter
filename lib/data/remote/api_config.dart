@@ -4,4 +4,5 @@ abstract class ApiConfig {
 
   static const domainHostQuestion = "https://private-07584e-members16.apiary-mock.com/";
   static const questions = "questions";
+  static const detailQuestion = "question/1";
 }

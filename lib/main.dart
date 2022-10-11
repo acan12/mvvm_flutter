@@ -6,8 +6,6 @@ import 'package:go_router/go_router.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'data/model/entity/department.dart';
-import 'data/model/entity/job.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,9 +14,9 @@ void main() async {
   GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
   await Hive.initFlutter();
   Hive
-    ..registerAdapter(EmployeeAdapter())
-    ..registerAdapter(JobAdapter())
-    ..registerAdapter(DepartmentAdapter());
+    ..registerAdapter(EmployeeAdapter());
+    // ..registerAdapter(JobAdapter())
+    // ..registerAdapter(DepartmentAdapter());
 
   runApp(MyApp());
 }
