@@ -3,7 +3,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_demo/data/model/response/question/question_detail_response.dart';
 
-
 import '../../../viewmodel/provider/question_provider.dart';
 import '../../component/appbar.dart';
 import '../../uiconfig.dart';
@@ -29,6 +28,7 @@ class DetailPage extends ConsumerWidget {
 
   Widget showDetail(Data data) {
     return Container(
+        child: SingleChildScrollView(
       child: Column(
         children: [
           FadeInImage.assetNetwork(
@@ -48,7 +48,7 @@ class DetailPage extends ConsumerWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: EdgeInsets.only(left: 20),
+              padding: EdgeInsets.all(20),
               child: Text(
                 data.answer,
                 style: TextStyle(color: Colors.yellow, fontSize: 20),
@@ -57,6 +57,6 @@ class DetailPage extends ConsumerWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }

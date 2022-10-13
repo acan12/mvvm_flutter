@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
-            android:label="mvvm_flutter"
+            android:label="Base Flutter Demo"
             android:name="${applicationName}"
             android:icon="@mipmap/ic_launcher">
         <activity
