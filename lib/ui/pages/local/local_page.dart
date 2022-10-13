@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/model/entity/employee.dart';
-import '../../../viewmodel/provider/employee_provider.dart';
 import '../../../viewmodel/provider/question_provider.dart';
 import '../../component/add_employee_bottomsheet_dialog.dart';
 
@@ -12,7 +11,9 @@ class LocalPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final questionViewModel = ref.watch(questionPageProvider);
-    final listEmployees = ref.watch(allEmployeeProvider);
+
+    questionViewModel.getAllEmployee();
+    final listEmployee = questionViewModel.listEmployee;
 
     return Scaffold(
       appBar: AppBar(
@@ -20,21 +21,13 @@ class LocalPage extends ConsumerWidget {
         actions: <Widget>[
           IconButton(
               onPressed: () {
-                questionViewModel
-                  ..deleteAllEmployee()
-                  ..getAllEmployee();
+                questionViewModel..deleteAllEmployee();
+                ref.read(questionPageProvider.notifier).getAllEmployee();
               },
               icon: Icon(Icons.delete)),
         ],
       ),
-      body: Center(
-          child: listEmployees.when(
-              data: (data) => showWidgetEmployees(data),
-              error: (err, stack) => Text("Errror: ${err.toString()}"),
-              loading: () => Center(
-                      child: CircularProgressIndicator(
-                    color: Colors.blue,
-                  )))),
+      body: Center(child: showWidgetEmployees(listEmployee)),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(

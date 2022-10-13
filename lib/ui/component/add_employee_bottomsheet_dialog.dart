@@ -4,13 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_demo/viewmodel/provider/question_provider.dart';
 
 import '../../data/model/entity/employee.dart';
-import '../../viewmodel/provider/employee_provider.dart';
 
 TextEditingController nameController = new TextEditingController();
 TextEditingController emailController = new TextEditingController();
 
 Widget showAddQuestionBottomSheet(WidgetRef ref, BuildContext context) {
   final questionViewModel = ref.watch(questionPageProvider);
+
   return Container(
     margin: new EdgeInsets.symmetric(horizontal: 30, vertical: 30),
     child: Column(
@@ -49,7 +49,7 @@ Widget showAddQuestionBottomSheet(WidgetRef ref, BuildContext context) {
                       ..addEmployee(Employee(nameController.text,
                           nameController.text, "30", emailController.text));
 
-                    ref.read(allEmployeeProvider.future);
+                    ref.read(questionPageProvider.notifier).getAllEmployee();
 
                     nameController.clear();
                     emailController.clear();
