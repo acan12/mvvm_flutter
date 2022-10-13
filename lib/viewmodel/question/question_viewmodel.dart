@@ -18,10 +18,9 @@ class QuestionPageViewModel extends BaseViewModel {
       questionRepo.getDetailQuestion();
 
   Future<List<Employee>> getAllEmployee() async{
-    listEmployee = await userRepo.getAllEmployee();
-
-    notifyListeners();
-    return listEmployee;
+    // listEmployee = await userRepo.getAllEmployee();
+    final result = await userRepo.getAllEmployee();
+    return result;
   }
 
   void addEmployee(Employee employee) {

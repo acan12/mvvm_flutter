@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/model/entity/employee.dart';
+import '../../../viewmodel/provider/employee_provider.dart';
 import '../../../viewmodel/provider/question_provider.dart';
 import '../../component/add_employee_bottomsheet_dialog.dart';
 
@@ -11,7 +12,7 @@ class LocalPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final questionViewModel = ref.watch(questionPageProvider);
-    List<Employee> listEmployees = questionViewModel.listEmployee;
+    final listEmployees = ref.watch(allEmployeeProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -26,13 +27,20 @@ class LocalPage extends ConsumerWidget {
               icon: Icon(Icons.delete)),
         ],
       ),
-      body: Center(child: showWidgetEmployees(listEmployees)),
+      body: Center(
+          child: listEmployees.when(
+              data: (data) => showWidgetEmployees(data),
+              error: (err, stack) => Text("Errror: ${err.toString()}"),
+              loading: () => Center(
+                      child: CircularProgressIndicator(
+                    color: Colors.blue,
+                  )))),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
               context: context,
               builder: (context) {
-                return showAddQuestionBottomSheet(questionViewModel, context);
+                return showAddQuestionBottomSheet(ref, context);
               });
         },
         tooltip: 'Increment',

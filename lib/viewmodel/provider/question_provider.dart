@@ -12,4 +12,5 @@ final detailQuestionProvider =
         (ref) => QuestionPageViewModel().getDetailQuestion());
 
 final questionPageProvider =
-    ChangeNotifierProvider.autoDispose<QuestionPageViewModel>((_) => QuestionPageViewModel());
+    ChangeNotifierProvider<QuestionPageViewModel>((_) => QuestionPageViewModel());
+
