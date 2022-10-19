@@ -2,11 +2,17 @@
 
 A new Demo MVVM Flutter project.
 
+![main_page](https://user-images.githubusercontent.com/39822/196571012-10b20e85-6fa4-45a1-ab59-2c3772372399.jpeg)
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application to show mvvm implementation.
 
-
+## Flutter Naming Convention
+https://dart-lang.github.io/linter/lints/file_names.html
+https://dart.dev/guides/language/effective-dart
+https://medium.com/@farhanaslam910/naming-convention-in-dart-programming-language-flutter-95feda7a8f4b
 
 ####Advantage:
 1. MVVM architecture approach .
