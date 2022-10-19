@@ -15,14 +15,14 @@ https://dart-lang.github.io/linter/lints/file_names.html
 https://dart.dev/guides/language/effective-dart
 https://medium.com/@farhanaslam910/naming-convention-in-dart-programming-language-flutter-95feda7a8f4b
 
-####Advantage:
+### Advantage:
 1. MVVM architecture approach .
 2. Slim code for fetch api and local data soorage .
 3. Use `HIVE` as local database ( https://docs.hivedb.dev/#/ ) .
 4. Use `Freezed` for make slim the model
 5. Should be easy for make unit test.
 
-####Latest issue:
+### Latest issue:
 1. App sizing
 2. Provider modularity
 3. Unit test
