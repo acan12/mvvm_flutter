@@ -2,7 +2,8 @@
 
 A new Demo MVVM Flutter project.
 
-![main_page](https://user-images.githubusercontent.com/39822/196571012-10b20e85-6fa4-45a1-ab59-2c3772372399.jpeg)
+
+<img src="https://user-images.githubusercontent.com/39822/196571012-10b20e85-6fa4-45a1-ab59-2c3772372399.jpeg" width="250" height="500">
 
 
 ## Getting Started
