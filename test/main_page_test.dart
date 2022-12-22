@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:freezed_demo/main.dart';
 import 'package:freezed_demo/viewmodel/question/question_viewmodel.dart';
 import 'package:freezed_demo/viewmodel/question_service.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:mockito/mockito.dart';
 
 class MockQuestionService extends Mock implements QuestionService {}
 
