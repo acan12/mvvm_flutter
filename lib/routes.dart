@@ -1,3 +1,4 @@
+import 'package:chucker_flutter/chucker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_demo/ui/pages/error_page.dart';
 import 'package:freezed_demo/ui/pages/local/local_page.dart';
@@ -14,6 +15,7 @@ const String routeLocal = 'local';
 
 final goRouter = GoRouter(
   debugLogDiagnostics: true,
+  observers: [ChuckerFlutter.navigatorObserver],
   initialLocation: routeHome,
   routes: [
     GoRoute(
