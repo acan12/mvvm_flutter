@@ -1,3 +1,5 @@
+import 'package:freezed_demo/data/model/request/question_create_request.dart';
+import 'package:freezed_demo/data/model/response/question/question_create_response.dart';
 import 'package:freezed_demo/data/model/response/question/question_response.dart';
 import 'package:freezed_demo/viewmodel/base_viewmodel.dart';
 
@@ -19,6 +21,11 @@ class QuestionPageViewModel extends BaseViewModel implements QuestionService {
   @override
   Future<QuestionDetailResponse> getDetailQuestion() =>
       questionRepo.getDetailQuestion();
+
+  @override
+  Future<QuestionCreateResponse> postCreateQuestion(
+          QuestionCreateRequest createRequest) =>
+      questionRepo.postCreateQuestion(createRequest);
 
   @override
   void getAllEmployee() async {
